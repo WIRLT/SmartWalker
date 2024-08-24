@@ -1,0 +1,140 @@
+#include "M5UnitPbHub.h"
+#include <WiFi.h>
+#include <string>
+
+const char* ssid = "Walker_System";
+const char* password = "Pass123123";
+const IPAddress ip(192, 168, 4, 1);  // Set the desired IP address for the ESP32
+const int port = 12345;  // Set the desired port number
+
+WiFiServer server(port);
+WiFiClient client;
+String data;
+M5UnitPbHub pbhub;
+float speed_0=0;
+float speed_1=0;
+float distance_0=0;
+float distance_1=0;
+float step_size=0;
+float step_temp=0;
+float force_0=0;
+float force_1=0;
+
+float magns_distance=13*3.14/500;
+unsigned long start_time_0;
+unsigned long start_time_1;
+unsigned long curr_time;
+float spin_time_0;
+float spin_time_1;
+unsigned long s_delay=0;
+float accel=0;
+float speed=0;
+float prev_speed=0;
+short hall_prev_0=1;
+short hall_prev_1=1;
+short hall_curr_0=0;
+short hall_curr_1=0;
+short speed_tresh=2;
+
+
+void connection_setup(){
+  WiFi.softAP(ssid, password);
+  WiFi.softAPConfig(ip, ip, IPAddress(255, 255, 255, 0)); // Set the IP configuration
+  server.begin();
+  Serial.print("AP IP address: ");
+  Serial.println(ip);
+}
+
+
+void hall_data(){
+  hall_curr_0 = 1-pbhub.digitalRead(2, 0);
+  hall_curr_1 = 1-pbhub.digitalRead(3, 0);
+  curr_time=millis();
+  spin_time_0=(float)(curr_time-start_time_0)/1000;
+  spin_time_1=(float)(curr_time-start_time_1)/1000;
+  //handle left wheel
+  if (hall_curr_0 && (1-hall_prev_0)){
+    distance_0 += magns_distance;
+    if(spin_time_0 != 0)
+      speed_0 = magns_distance/spin_time_0;
+    start_time_0 = curr_time;
+    step_temp+=magns_distance;
+  }
+  if (spin_time_0>speed_tresh){
+    speed_0=0;
+    if (step_temp > 0 || spin_time_0>6)
+      step_size=step_temp;
+    step_temp=0;
+  }
+  hall_prev_0 = hall_curr_0;
+  //handle right wheel
+  if (hall_curr_1 && (1-hall_prev_1)){
+    distance_1 += magns_distance;
+    if(spin_time_1 != 0)
+      speed_1 = magns_distance/spin_time_1;
+    start_time_1 = curr_time;
+  }
+  if (spin_time_1>speed_tresh){
+    speed_1=0;
+  }
+  hall_prev_1 = hall_curr_1;
+  //final results
+  prev_speed = speed;
+  speed=(speed_0+speed_1)/2;
+}
+
+void grip_pressure(){
+  force_0=((float)((3900-pbhub.analogRead(0))+(3900-pbhub.analogRead(1)))/2)/3900*100;
+  force_1=((float)((3900-pbhub.analogRead(4))+(3900-pbhub.analogRead(5)))/2)/3900*100;
+  if(force_0<=0){
+    force_0=0;
+  }
+  if(force_1<=0){
+    force_1=0;
+  }
+  if(force_0>100){
+    force_0=100;
+  }
+  if(force_1>100){
+    force_1=100;
+  }
+}
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(115200);
+  pinMode(13,OUTPUT);
+  if (!pbhub.begin(&Wire, UNIT_PBHUB_I2C_ADDR, 21, 22, 400000U)) {
+        Serial.println("Couldn't find Pbhub");
+        while (1) delay(1);
+    }
+  connection_setup();
+  start_time_0=millis();
+  start_time_1=millis();
+  s_delay=millis();
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+  while (!client.connected()) {
+    digitalWrite(13, HIGH);
+    delay(1000);
+    // Wait for a client to connect
+    client = server.available();
+    digitalWrite(13, LOW);
+  }
+  
+  digitalWrite(13, LOW);
+  hall_data();
+  grip_pressure();
+  //step();
+  if(millis()-s_delay>=1000){
+    data=String(speed_0,2)+","+String(speed_1,2)+","+String((distance_0+distance_1)/2,2)+",";
+    data+=String(step_size,2)+","+String(force_0,2)+","+String(force_1,2)+",0";
+    client.print(data);
+    distance_0 = 0;
+    distance_1 = 0;
+    s_delay=millis();
+  }
+}
