@@ -13,7 +13,7 @@ note: the code in here is used for the specific system for walkers built in tel 
 
 ### Demo
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198" alt="Alt text" width="500" height="100"/>
+  <img src="https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198" alt="Alt text" width="900" height="200"/>
 </p>
 
 ### working with the files
@@ -45,13 +45,13 @@ python3 ./SmartWalker.py
 first page
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b" alt="Alt text" width="500" height="100"/>
+  <img src="https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b" alt="Alt text" width="700" height="500"/>
 </p>
 
 seconde page
 
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3" alt="Alt text" width="500" height="100"/>
+  <img src="https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3" alt="Alt text" width="700" height="500"/>
 </p>
 
 ##Thank You.
