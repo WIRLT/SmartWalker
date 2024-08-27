@@ -1,8 +1,5 @@
-SmartWalker
+# SmartWalker project, the code in here is used for the specific system for walkers built in tel aviv university.
 
-Overview
+## the project keep track of certain parameters for the walker and send them via wifi to a PC program (GUI).
 
-Installation
-Clone the repository:
-  git clone https://github.com/WIRLT/SmartWalker.git
-  cd SmartWalker
+
