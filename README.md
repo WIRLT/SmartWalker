@@ -11,5 +11,8 @@ note: the code in here is used for the specific system for walkers built in tel 
 * in the program as well it can save data showen on the screen at anytime.
 
 ### Demo
-![Screenshot 2024-08-28 004415](https://github.com/user-attachments/assets/3a54c1c3-775f-4cbc-ac81-938ad088e8a8)
+![Screenshot 2024-08-28 005022](https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198)
 
+```console
+git clone https://github.com/WIRLT/SmartWalker.git
+```
