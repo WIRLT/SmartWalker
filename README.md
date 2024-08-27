@@ -42,9 +42,12 @@ python3 ./SmartWalker.py
 
 ### inside the gui app
 first page
+
 ![Screenshot 2024-08-24 012721](https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b)
 
+
 seconde page
+
 ![Screenshot 2024-08-24 012653](https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3)
 
 Thank You.
