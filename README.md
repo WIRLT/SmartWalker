@@ -13,6 +13,25 @@ note: the code in here is used for the specific system for walkers built in tel 
 ### Demo
 ![Screenshot 2024-08-28 005022](https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198)
 
+### working with the files
+* SmartWalker.py - the main gui file 
+* check_run.py - the seconde gui page where data is showen in real time
+* database.py - functions for working with database
+* server_connection.py - functions to handle connections with the system placed at the walker
+* system_code.txt - C++ code for the system uploaded to esp32 board
+* users.db - database for patients saved by id (note id 0 is for testing)
+
+#### how to run the GUI
+1) clone the repository
 ```console
 git clone https://github.com/WIRLT/SmartWalker.git
+```
+2) open the folder
+```console
+cd SmartWalker
+```
+
+3) run SmartWalker.py
+```console
+python3 ./SmartWalker.py
 ```
