@@ -12,9 +12,8 @@ note: the code in here is used for the specific system for walkers built in tel 
 
 
 ### Demo
-![Screenshot 2024-08-28 005022](https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198)
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198" alt="Alt text" width="100" height="100"/>
+  <img src="https://github.com/user-attachments/assets/6d9dc271-4893-4733-a691-e60580e7c198" alt="Alt text" width="500" height="100"/>
 </p>
 
 ### working with the files
@@ -45,11 +44,14 @@ python3 ./SmartWalker.py
 ### inside the gui app
 first page
 
-![Screenshot 2024-08-24 012721](https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b)
-
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b" alt="Alt text" width="500" height="100"/>
+</p>
 
 seconde page
 
-![Screenshot 2024-08-24 012653](https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3" alt="Alt text" width="500" height="100"/>
+</p>
 
 ##Thank You.
