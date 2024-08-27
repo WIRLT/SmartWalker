@@ -1,6 +1,6 @@
 # SmartWalker project, PC GUI and system code.
 
-## The project keep track of certain parameters for the walker and send them via wifi to a PC program (GUI).
+### The project keep track of certain parameters for the walker and send them via wifi to a PC program (GUI).
 note: the code in here is used for the specific system for walkers built in tel aviv university.
 
 ## Full description of the project:
@@ -42,13 +42,13 @@ python3 ./SmartWalker.py
 ```
 
 ## inside the gui app
-first page
+#### first page
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/85c226af-4084-4330-b1d1-6c343e66e65b" alt="Alt text" width="900" height="300"/>
 </p>
 
-seconde page
+#### seconde page
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/d5ea63d0-d646-4a02-95f7-9ec0bf56e2a3" alt="Alt text" width="900" height="500"/>
